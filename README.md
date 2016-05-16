@@ -11,6 +11,7 @@ This plugin cannot work on simulator, because it uses some device-specific capab
 ## Installation
 
 ```
+npm install https://github.com/aabluedragon/node-xcode.git
 cordova plugin add https://gitlab.com/blocknotary/cordova-plugin-interview.git
 cordova plugin add cordova-plugin-disable-bitcode --save
 ```
