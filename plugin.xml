@@ -20,9 +20,11 @@
             <string>Application overlays geolocation on video frame</string>
         </config-file>
 
+        <hook type="after_platform_add" src="hooks/embedframework/addEmbedded.js" />
+
         <header-file src="src/ios/InterviewCordova.h" />
         <source-file src="src/ios/InterviewCordova.m" />
-        <framework src="src/ios/vendor/InterviewSDK.framework" custom="true"/>
+        <framework src="src/ios/vendor/InterviewSDK.framework" custom="true" embed="true"/>
         <framework src="Foundation.framework"/>
         <framework src="UIKit.framework"/>
         <framework src="CoreLocation.framework"/>
