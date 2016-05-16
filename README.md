@@ -6,6 +6,8 @@ Uses InterviewSDK v2.0.1
 
 Only for iOS (minimum version 8.0)
 
+This plugin cannot work on simulator, because it uses some device-specific capablities (camera, microphone etc)
+
 ## Installation
 
 ```
