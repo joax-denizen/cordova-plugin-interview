@@ -1,0 +1,6 @@
+framework module InterviewSDK {
+  umbrella header "InterviewSDK.h"
+
+  export *
+  module * { export * }
+}

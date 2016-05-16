@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-interview" version="2.0.1">
+    <name>Interview</name>
+    <description>Blockchain-based Video Interview Plugin</description>
+    <license>MIT</license>
+    <keywords>interview,video,blockchain,sdk</keywords>
+    <js-module src="www/InterviewScript.js" name="interview">
+        <clobbers target="interview" />
+    </js-module>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="InterviewSDK">
+                <param name="ios-package" value="InterviewCordova" />
+            </feature>
+        </config-file>
+        <config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
+            <string>Application overlays geolocation on video frame</string>
+        </config-file>
+
+        <header-file src="src/ios/InterviewCordova.h" />
+        <source-file src="src/ios/InterviewCordova.m" />
+        <framework src="src/ios/vendor/InterviewSDK.framework" custom="true"/>
+        <framework src="Foundation.framework"/>
+        <framework src="UIKit.framework"/>
+        <framework src="CoreLocation.framework"/>
+        <framework src="ImageIO.framework"/>
+        <framework src="CoreGraphics.framework"/>
+        <framework src="MobileCoreServices.framework"/>
+        <framework src="Security.framework"/>
+        <framework src="SystemConfiguration.framework"/>
+    </platform>
+
+</plugin>
