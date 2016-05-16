@@ -10,6 +10,7 @@ Only for iOS (minimum version 8.0)
 
 ```
 cordova plugin add https://gitlab.com/blocknotary/cordova-plugin-interview.git
+cordova plugin add cordova-plugin-disable-bitcode --save
 ```
 
 ## Usage
