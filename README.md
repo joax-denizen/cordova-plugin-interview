@@ -19,8 +19,6 @@ cordova plugin add cordova-plugin-disable-bitcode --save
 ## Usage
 
 ```
-// With concrete taskId
-interview.showInterview(onSuccess, onError, "taskId");
 
 // Demo mode
 interview.showInterview(onSuccess, onError);
