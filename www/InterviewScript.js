@@ -4,8 +4,8 @@ var InterviewSDK = function () {
     this.name = "InterviewSDK";
 };
 
-InterviewSDK.prototype.showInterview = function (onSuccess, onError, taskId) {
-    exec(onSuccess, onError, "InterviewSDK", "showInterview", taskId);
+InterviewSDK.prototype.showDemoInterview = function (onSuccess, onError) {
+	exec(onSuccess, onError, "InterviewSDK", "showDemoInterview");
 };
 
 module.exports = new InterviewSDK();

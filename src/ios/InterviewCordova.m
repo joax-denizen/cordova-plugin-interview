@@ -10,9 +10,7 @@
 
 @implementation InterviewCordova
 
-- (void)showInterview:(CDVInvokedUrlCommand*)command{
-    NSString *taskId = [command.arguments objectAtIndex:0];
-
+- (void)showDemoInterview:(CDVInvokedUrlCommand*)command{
     __block CDVPluginResult* pluginResult = nil;
     [[Interview instance] showInterviewControllerWithTaskId:nil animated:YES withSuccessHandler:^(NSDictionary * _Nullable task) {
         if(task){

@@ -13,6 +13,6 @@
 
 @interface InterviewCordova : CDVPlugin
 
-- (void)showInterview:(CDVInvokedUrlCommand*)command;
+- (void)showDemoInterview:(CDVInvokedUrlCommand*)command;
 
 @end
