@@ -45,6 +45,7 @@ typedef enum : NSUInteger {
 @property (nonatomic) AffSubtaskWatermarkMask watermark;
 @property (nonatomic) BOOL isAntimirror;
 @property (nonatomic) BOOL isRear;
+@property (nonatomic) BOOL isCatchScreenshots;
 @property (nonatomic) NSInteger order;
 
 - (UIImage *)getOverlay;

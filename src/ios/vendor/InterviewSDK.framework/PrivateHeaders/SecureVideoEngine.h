@@ -13,6 +13,7 @@
 #import "AffTaskObject.h"
 #import "AffSubtaskObject.h"
 
+typedef void (^ExportAudioCompletionBlock)(id _Nullable error);
 
 //@class SDC;
 @class SecureVideoEngine;
@@ -29,6 +30,12 @@ typedef enum {
     EngineStateInterrupted
 } EngineState;
 
+typedef enum {
+    EngineCatchScreenshotStyleNone = 0,
+    EngineCatchScreenshotStyleFace,
+    EngineCatchScreenshotStyleDocument
+} EngineCatchScreenshotStyle;
+
 @protocol SecureVideoEngineDelegate <NSObject>
 @required
 - (void)videoEngineStateWasChanged:(nonnull SecureVideoEngine *)engine;
@@ -37,7 +44,7 @@ typedef enum {
 - (void)failRecording;
 - (void)forceProcessingVideoAfterInterrupt;
 - (void)diskIsFull;
-- (void)faceWasDetectedAtBounds:(CGRect)relativelyBounds;
+- (void)faceWasDetectedAtBounds:(CGRect)relativelyBounds onImage:(UIImage *)img;
 - (void)faceWasUndetected;
 @optional
 - (void)videoFrameRetrieved:(UIImage *)videoFrame;
@@ -78,6 +85,8 @@ typedef enum {
 
 - (BOOL)isRecordRunning;
 - (BOOL)isCaptureSessionRunning;
+
+@property (nonatomic) EngineCatchScreenshotStyle catchScreenshotsType;
 
 @property (nonatomic, strong) NSString *taskId;
 //@property (nonatomic, strong) id userInfo;
