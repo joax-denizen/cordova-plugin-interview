@@ -52,7 +52,7 @@
 // Fonts
 #define SDC_REGULAR_FONT_WITH_SIZE(sz) [UIFont fontWithName:@"HelveticaNeue" size:sz]
 #define SDC_BOLD_FONT_WITH_SIZE(sz) [UIFont fontWithName:@"HelveticaNeue-Medium" size:sz]
-//#define SDC_LIGHT_FONT_WITH_SIZE(sz) [UIFont fontWithName:@"HelveticaNeue-Light" size:sz]
+#define SDC_LIGHT_FONT_WITH_SIZE(sz) [UIFont fontWithName:@"HelveticaNeue-Light" size:sz]
 #define SDC_FONT_NAVBAR_TEXT [UIFont fontWithName:@"HelveticaNeue-Medium" size:16.0]
 
 #define INTERVIEW_WAS_FINISHED_NOTIFICATION @"InterviewWasFinished"

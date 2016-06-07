@@ -40,15 +40,19 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) UIView *taskView;
 @property (nonatomic, strong) UIButton *oversizeTaskButton;
 @property (nonatomic, strong) UIButton *taskButton;
+@property (nonatomic, strong) UIButton *recButton;
 @property (nonatomic, strong) UIScrollView *taskDescrScrollView;
 @property (nonatomic, strong) UILabel *taskTitle;
 @property (nonatomic, strong) UIImageView *taskImageView;
+
+@property (nonatomic) BOOL isFullscreenMode;
 
 - (void)setIsRecordingIcon:(BOOL)isRec;
 - (void)updateRecordTime:(NSTimeInterval)seconds;
 - (void)setTitle:(NSString *)titleStr andSubtitle:(NSString *)subtitleStr;
 - (void)showBackButton:(BOOL)isShow;
 - (void)setTaskButtonTitle:(NSString *)btnTitle andEnable:(BOOL)btnEnabled;
+- (void)setRecButtonRecordered:(BOOL)isRec andEnable:(BOOL)btnEnabled;
 - (void)pushSubtask:(AffSubtaskObject *)subtask withBackButton:(BOOL)isBackBtn;
 
 
