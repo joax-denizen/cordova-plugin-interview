@@ -33,7 +33,9 @@ typedef enum {
 typedef enum {
     EngineCatchScreenshotStyleNone = 0,
     EngineCatchScreenshotStyleFace,
-    EngineCatchScreenshotStyleDocument
+    EngineCatchScreenshotStyleDocument,
+    EngineCatchScreenshotStyleFaceIdle,     // only highlight, not catch
+    EngineCatchScreenshotStyleDocumentIdle  // only highlight, not catch
 } EngineCatchScreenshotStyle;
 
 @protocol SecureVideoEngineDelegate <NSObject>
@@ -44,10 +46,10 @@ typedef enum {
 - (void)failRecording;
 - (void)forceProcessingVideoAfterInterrupt;
 - (void)diskIsFull;
-- (void)faceWasDetectedAtBounds:(CGRect)relativelyBounds onImage:(UIImage *)img;
+- (void)faceWasDetectedAtBounds:(CGRect)relativelyBounds onImage:(UIImage * _Nullable)img;
 - (void)faceWasUndetected;
 @optional
-- (void)videoFrameRetrieved:(UIImage *)videoFrame;
+- (void)videoFrameRetrieved:(UIImage * _Nullable)videoFrame;
 @end
 
 

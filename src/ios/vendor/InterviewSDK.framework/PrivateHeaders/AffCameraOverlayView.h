@@ -35,25 +35,27 @@ typedef enum : NSUInteger {
 @property (nonatomic) AffCameraOverlayViewState taskState;
 
 @property (nonatomic, strong) UIImageView *cameraMaskImageView;
-@property (nonatomic, strong) UIView *landscapeStatusView;
-@property (nonatomic, strong) UILabel *recTimeLabel;
-@property (nonatomic, strong) UIView *taskView;
-@property (nonatomic, strong) UIButton *oversizeTaskButton;
-@property (nonatomic, strong) UIButton *taskButton;
-@property (nonatomic, strong) UIButton *recButton;
 @property (nonatomic, strong) UIScrollView *taskDescrScrollView;
 @property (nonatomic, strong) UILabel *taskTitle;
-@property (nonatomic, strong) UIImageView *taskImageView;
+//@property (nonatomic, strong) UILabel *stepLabel;
+@property (nonatomic, strong) UILabel *infoLabel;
+
 
 @property (nonatomic) BOOL isFullscreenMode;
 
 - (void)setIsRecordingIcon:(BOOL)isRec;
 - (void)updateRecordTime:(NSTimeInterval)seconds;
 - (void)setTitle:(NSString *)titleStr andSubtitle:(NSString *)subtitleStr;
-- (void)showBackButton:(BOOL)isShow;
-- (void)setTaskButtonTitle:(NSString *)btnTitle andEnable:(BOOL)btnEnabled;
+//- (void)showBackButton:(BOOL)isShow;
+//- (void)setTaskButtonTitle:(NSString *)btnTitle andEnable:(BOOL)btnEnabled;
+- (void)setInfo:(NSString *)infoTitle;
 - (void)setRecButtonRecordered:(BOOL)isRec andEnable:(BOOL)btnEnabled;
-- (void)pushSubtask:(AffSubtaskObject *)subtask withBackButton:(BOOL)isBackBtn;
+- (void)pushSubtask:(AffSubtaskObject *)subtask withIndex:(NSInteger)subtaskIndex fromTotal:(NSInteger)totalSubtasks;
+
+- (void)showProgressHUDWithText:(NSString *)hudText;
+- (void)changeHUDProgress:(float)progress;
+- (void)showWaitHUDWithText:(NSString *)hudText;
+- (void)hideHUD;
 
 
 @end

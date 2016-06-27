@@ -48,7 +48,7 @@ typedef enum : NSUInteger {
 @property (nonatomic) BOOL isCatchScreenshots;
 @property (nonatomic) NSInteger order;
 
-- (UIImage *)getOverlay;
+- (UIImage *)getOverlayWithHighlight:(BOOL)isHighlight;
 - (UIImage *)getTaskImage;
 - (NSString *)mainButtonTextBeforeMinTime;
 

@@ -18,10 +18,18 @@
 //#define IOS6 (IOS_VER>=6.0 ? YES : NO)
 //#define IOS5 (IOS_VER>=5.0 ? YES : NO)
 
-#define IS_RETINA_3_5 ([UIScreen mainScreen].bounds.size.height==480.0 ? YES : NO)
-#define IS_RETINA_4 ([UIScreen mainScreen].bounds.size.height==568.0 ? YES : NO)
-#define IS_RETINA_4_7 ([UIScreen mainScreen].bounds.size.height==667.0 ? YES : NO)
-#define IS_RETINA_5_5 ([UIScreen mainScreen].bounds.size.height>700.0 ? YES : NO)
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+#define SCREEN_MAX_SIDE (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define SCREEN_MIN_SIDE (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define IS_RETINA_3_5 ((IS_IPHONE && SCREEN_MAX_SIDE==480.0) ? YES : NO)
+#define IS_RETINA_4 ((IS_IPHONE && SCREEN_MAX_SIDE==568.0) ? YES : NO)
+#define IS_RETINA_4_7 ((IS_IPHONE && SCREEN_MAX_SIDE==667.0) ? YES : NO)
+#define IS_RETINA_5_5 ((IS_IPHONE && SCREEN_MAX_SIDE==736.0) ? YES : NO)
+
+#define IMAGE_DEVICE_SUFFIX (IS_RETINA_3_5 ? @"i4" : (IS_RETINA_4 ? @"i5" : (IS_RETINA_4_7 ? @"i6" : (IS_RETINA_5_5 ? @"i6p" : @"i5"))))
 
 #define LONG_SCREEN_SIDE MAX([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)
 #define SHORT_SCREEN_SIDE MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)
