@@ -29,6 +29,10 @@
 #define IS_RETINA_4_7 ((IS_IPHONE && SCREEN_MAX_SIDE==667.0) ? YES : NO)
 #define IS_RETINA_5_5 ((IS_IPHONE && SCREEN_MAX_SIDE==736.0) ? YES : NO)
 
+#define RELATIVE_RECT(x, y, w, h, W, H) CGRectMake(W*x, H*y, w*W, h*H)
+#define RELATIVE_LANDSCAPE_RECT(x, y, w, h) RELATIVE_RECT(x, y, w, h, SCREEN_MAX_SIDE, SCREEN_MIN_SIDE)
+#define RELATIVE_PORTRAIT_RECT(x, y, w, h) RELATIVE_RECT(x, y, w, h, SCREEN_MIN_SIDE, SCREEN_MAX_SIDE)
+
 #define IMAGE_DEVICE_SUFFIX (IS_RETINA_3_5 ? @"i4" : (IS_RETINA_4 ? @"i5" : (IS_RETINA_4_7 ? @"i6" : (IS_RETINA_5_5 ? @"i6p" : @"i5"))))
 
 #define LONG_SCREEN_SIDE MAX([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)
@@ -62,6 +66,8 @@
 #define SDC_BOLD_FONT_WITH_SIZE(sz) [UIFont fontWithName:@"HelveticaNeue-Medium" size:sz]
 #define SDC_LIGHT_FONT_WITH_SIZE(sz) [UIFont fontWithName:@"HelveticaNeue-Light" size:sz]
 #define SDC_FONT_NAVBAR_TEXT [UIFont fontWithName:@"HelveticaNeue-Medium" size:16.0]
+
+#define INTERVIEW_HELP_FONT_WITH_SIZE(sz) [UIFont fontWithName:@"Noteworthy-Light" size:sz]
 
 #define INTERVIEW_WAS_FINISHED_NOTIFICATION @"InterviewWasFinished"
 

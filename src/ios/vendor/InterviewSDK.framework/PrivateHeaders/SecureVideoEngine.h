@@ -88,6 +88,8 @@ typedef enum {
 - (BOOL)isRecordRunning;
 - (BOOL)isCaptureSessionRunning;
 
+- (BOOL)checkOneTimeFlag:(NSString *)flagName;
+
 @property (nonatomic) EngineCatchScreenshotStyle catchScreenshotsType;
 
 @property (nonatomic, strong) NSString *taskId;
@@ -105,15 +107,9 @@ typedef enum {
 
 // Info-properties
 @property (nonatomic, readonly) EngineState engineState;
-
 @property (nonatomic) NSInteger fragmentIndex;
-
 @property (nonatomic, readonly) CLLocationCoordinate2D gpsCoord;
-/*@property (nonatomic, readonly) double gpsVelocity;
-@property (nonatomic, readonly) double gpsAzimuth;
-@property (nonatomic, readonly) double accelX;
-@property (nonatomic, readonly) double accelY;
-@property (nonatomic, readonly) double accelZ;*/
+
 
 // Service framework routines
 - (BOOL)mainApplication:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler;
