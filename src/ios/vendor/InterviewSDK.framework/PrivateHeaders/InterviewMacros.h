@@ -9,6 +9,8 @@
 #ifndef Macros_h
 #define Macros_h
 
+#define DEFAULT_ENGINE @"https://videointerview.blocknotary.com/"
+
 #define PRINT_FRAME(str, frame)                     NSLog(@"%@: %.0f, %.0f, %.0f, %.0f", str, frame.origin.x, frame.origin.y, frame.size.width, frame.size.height)
 #define PRINT_SIZE(str, size)                       NSLog(@"%@: %.0fx%.0f", str, size.width, size.height)
 #define PRINT_POINT(str, point)                     NSLog(@"%@: (%.0f, %.0f)", str, point.x, point.y)
@@ -70,6 +72,7 @@
 #define INTERVIEW_HELP_FONT_WITH_SIZE(sz) [UIFont fontWithName:@"Noteworthy-Light" size:sz]
 
 #define INTERVIEW_WAS_FINISHED_NOTIFICATION @"InterviewWasFinished"
+#define INTERVIEW_WAS_RESTARTED_WITH_RESULT_NOTIFICATION @"InterviewWasRestarted"
 
 #define INTERVIEW_BUNDLE [NSBundle bundleWithIdentifier:@"ru.hintsolutions.InterviewSDK"]
 #define INTERVIEW_IMAGE_NAMED(x) [UIImage imageNamed:x inBundle:INTERVIEW_BUNDLE compatibleWithTraitCollection:nil]

@@ -12,6 +12,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "AffTaskObject.h"
 #import "AffSubtaskObject.h"
+#import "Interview.h"
 
 typedef void (^ExportAudioCompletionBlock)(id _Nullable error);
 
@@ -33,9 +34,11 @@ typedef enum {
 typedef enum {
     EngineCatchScreenshotStyleNone = 0,
     EngineCatchScreenshotStyleFace,
+    EngineCatchScreenshotStyleFacePortrait,
     EngineCatchScreenshotStyleDocument,
-    EngineCatchScreenshotStyleFaceIdle,     // only highlight, not catch
-    EngineCatchScreenshotStyleDocumentIdle  // only highlight, not catch
+    EngineCatchScreenshotStyleFaceIdle,         // only highlight, not catch
+    EngineCatchScreenshotStyleFacePortraitIdle, // only highlight, not catch
+    EngineCatchScreenshotStyleDocumentIdle      // only highlight, not catch
 } EngineCatchScreenshotStyle;
 
 @protocol SecureVideoEngineDelegate <NSObject>
@@ -104,6 +107,9 @@ typedef enum {
 @property (nonatomic, setter = setMirroring:) BOOL isMirroring;
 @property (nonatomic) BOOL isDateTimeOverlay;
 @property (nonatomic, setter = setIsGeolocationOverlay:) BOOL isGeolocationOverlay;
+@property (nonatomic) InterviewVideoQuality outVideoQuality;
+@property (nonatomic) BOOL isAutoloadVideo;
+@property (nonatomic, strong, getter = getEngineURL) NSString *engineURL;
 
 // Info-properties
 @property (nonatomic, readonly) EngineState engineState;

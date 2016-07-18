@@ -17,5 +17,6 @@
 
 @property (nonatomic, strong) IBOutlet UIImageView *backgroundImage;
 @property (nonatomic, strong) IBOutlet UILabel *sendingLabel;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint *rightConstraint;
 
 @end

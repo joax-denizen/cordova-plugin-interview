@@ -28,6 +28,12 @@ typedef enum : NSUInteger {
     AffSubtaskWatermarkMaskGeo         = 1<<1
 } AffSubtaskWatermarkMask;
 
+typedef enum : NSUInteger {
+    AffSubtaskPresentationStyleLandscape = 0,           // with left subtask view
+    AffSubtaskPresentationStyleLandscapeFullscreen,     // for passport types
+    AffSubtaskPresentationStylePortrait                 // portrait style
+} AffSubtaskPresentationStyle;
+
 
 @interface AffSubtaskObject : NSObject {
     
@@ -38,6 +44,7 @@ typedef enum : NSUInteger {
 
 @property (nonatomic) AffSubtaskType taskType;
 @property (nonatomic) AffSubtaskOverlayType overlayType;
+@property (nonatomic) AffSubtaskPresentationStyle presentationStyle;
 @property (nonatomic) NSTimeInterval minVideoDuration;
 @property (nonatomic) NSTimeInterval maxVideoDuration;
 @property (nonatomic, strong) NSString *title;

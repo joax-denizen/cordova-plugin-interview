@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    InterviewVideoQualityLow,
+    InterviewVideoQualityMedium,
+    InterviewVideoQualityHigh,
+} InterviewVideoQuality;
+
 typedef void (^InterviewCompletionBlock)(NSDictionary  * _Nullable task);
 typedef void (^InterviewErrorBlock)(id _Nullable error);
 
@@ -25,6 +31,15 @@ typedef void (^InterviewErrorBlock)(id _Nullable error);
 
 // If you want to hide close button at video controller, set this property to NO (default YES)
 @property (nonatomic, setter=setIsCloseButton:, getter=isCloseButton) BOOL isCloseButton;
+
+// Output video quality: InterviewVideoQualityLow, InterviewVideoQualityMedium(default), InterviewVideoQualityHigh
+@property (nonatomic, setter=setVideoQuality:, getter=getVideoQuality) InterviewVideoQuality videoQuality;
+
+// When this value "YES", SDK uploads video after interview. Value "NO" will prevent uploading video by SDK. (default YES)
+@property (nonatomic, setter=setAutoloadVideo:, getter=isAutoloadVideo) BOOL isAutoloadVideo;
+
+// Back-end API URL address. Default: "https://videointerview.blocknotary.com/"
+@property (nonatomic, setter=setEngineURL:, getter=getEngineURL) NSString *engineURL;
 
 
 + (instancetype _Nonnull)instance;

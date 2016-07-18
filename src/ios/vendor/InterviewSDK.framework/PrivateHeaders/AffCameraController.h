@@ -23,7 +23,7 @@
 @property (nonatomic, strong) IBOutlet UIImageView *needRotateImage;
 @property (nonatomic, strong) IBOutlet UILabel *needRotateLabel;
 
-@property (nonatomic, strong) AffTaskObject *currentTask;
+@property (nonatomic, strong, setter=setCurrentTask:) AffTaskObject *currentTask;
 
 - (void)restartEntireTask;
 

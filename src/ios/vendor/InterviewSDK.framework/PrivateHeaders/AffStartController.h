@@ -16,6 +16,7 @@
 @property (nonatomic, strong) IBOutlet UIImageView *backgroundImage;
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet UIButton *reloadTaskButton;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint *rightConstraint;
 
 - (void)stopCurrentLoading;
 - (void)startNewSession;

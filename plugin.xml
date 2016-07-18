@@ -40,6 +40,7 @@
         <framework src="CoreGraphics.framework"/>
         <framework src="MobileCoreServices.framework"/>
         <framework src="Security.framework"/>
+        <framework src="AudioToolbox.framework"/>
         <framework src="SystemConfiguration.framework"/>
     </platform>
 
