@@ -60,16 +60,17 @@ typedef enum {
     
 }
 
-+ (instancetype)instance;
++ (_Nonnull instancetype)instance;
++ (NSString * _Nonnull)sdkVersion;
 
-@property (nonatomic, assign) id<SecureVideoEngineDelegate> delegate;
+@property (nonatomic, assign) _Nullable id<SecureVideoEngineDelegate> delegate;
 //@property (nonatomic, assign) SDC *sdc;
 
 //- (id)initWithSDC:(SDC *)sdc;
-- (id)init;
+- (_Nonnull id)init;
 
 - (BOOL)createCaptureSession;
-- (void)setCapturePreView:(UIView *)preView;
+- (void)setCapturePreView:( UIView * _Nonnull)preView;
 - (void)setCaptureQuality;
 - (void)startCaptureSession;
 - (void)stopCaptureSession;
@@ -81,8 +82,10 @@ typedef enum {
 - (void)startFaceDetection;
 - (void)stopFaceDetection;
 
+- (void)cleanupVideoEngine; // use it before start new session
 
-- (void)startComposingReadyMovieForTask:(AffTaskObject *)task;
+
+- (void)startComposingReadyMovieForTask:(AffTaskObject * _Nonnull)task;
 
 //- (BOOL)signRecordWithRecordInfo:(NSMutableDictionary *)recordDictionary;
 
@@ -91,14 +94,13 @@ typedef enum {
 - (BOOL)isRecordRunning;
 - (BOOL)isCaptureSessionRunning;
 
-- (BOOL)checkOneTimeFlag:(NSString *)flagName;
+- (BOOL)checkOneTimeFlag:(NSString * _Nonnull)flagName;
 
 @property (nonatomic) EngineCatchScreenshotStyle catchScreenshotsType;
 
-@property (nonatomic, strong) NSString *taskId;
+@property (nonatomic, strong) NSString * _Nullable taskId;
 //@property (nonatomic, strong) id userInfo;
 
-@property (nonatomic) BOOL isGoodbyeScreen;
 @property (nonatomic) BOOL isDemoApp;
 @property (nonatomic) BOOL isCloseButton;
 
@@ -109,7 +111,9 @@ typedef enum {
 @property (nonatomic, setter = setIsGeolocationOverlay:) BOOL isGeolocationOverlay;
 @property (nonatomic) InterviewVideoQuality outVideoQuality;
 @property (nonatomic) BOOL isAutoloadVideo;
-@property (nonatomic, strong, getter = getEngineURL) NSString *engineURL;
+@property (nonatomic, strong, getter = getEngineURL) NSString * _Nullable engineURL;
+
+@property (strong, nonatomic, readonly) UIImage * _Nullable previewImageExample;
 
 // Info-properties
 @property (nonatomic, readonly) EngineState engineState;
@@ -118,7 +122,13 @@ typedef enum {
 
 
 // Service framework routines
-- (BOOL)mainApplication:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler;
-- (BOOL)mainApplication:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
+- (BOOL)mainApplication:(UIApplication * _Nonnull)application continueUserActivity:(NSUserActivity * _Nonnull)userActivity restorationHandler:(nullable void (^)(NSArray * _Nullable))restorationHandler;
+- (BOOL)mainApplication:(UIApplication * _Nonnull)application openURL:(NSURL * _Nonnull)url sourceApplication:(NSString * _Nullable)sourceApplication annotation:(id _Nullable)annotation;
+
+// Test function for OpenGL compositor (remove it after testing)
+//- (NSString *)produceBlurBackgroundForAsset2:(AVAsset *)videoAsset withIndex:(NSUInteger)idx;
+//- (NSString *)produceBlurBackgroundForAsset:(AVAsset *)videoAsset withIndex:(NSUInteger)idx;
+//- (AVPlayerItem *)produceBlurPlayerItemForURLAsset:(AVURLAsset *)inputAsset;
+
 
 @end

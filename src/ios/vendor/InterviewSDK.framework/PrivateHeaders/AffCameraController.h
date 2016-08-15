@@ -15,16 +15,18 @@
     
 };
 
-
-//@property (nonatomic, strong) SecureVideoEngine *engine;
 @property (nonatomic, strong) IBOutlet UIView *preView;
-
-@property (nonatomic, strong) IBOutlet UIView *needRotateView;
-@property (nonatomic, strong) IBOutlet UIImageView *needRotateImage;
-@property (nonatomic, strong) IBOutlet UILabel *needRotateLabel;
-
 @property (nonatomic, strong, setter=setCurrentTask:) AffTaskObject *currentTask;
 
+
+#pragma mark Start screen routines
+
+- (void)stopCurrentLoading;
+- (void)startNewSession;
+
+#pragma mark Camera screen routines
+
 - (void)restartEntireTask;
+- (void)restartLastSubtask;
 
 @end

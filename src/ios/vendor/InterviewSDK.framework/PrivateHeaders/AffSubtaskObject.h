@@ -58,5 +58,7 @@ typedef enum : NSUInteger {
 - (UIImage *)getOverlayWithHighlight:(BOOL)isHighlight;
 - (UIImage *)getTaskImage;
 - (NSString *)mainButtonTextBeforeMinTime;
+- (NSString *)reviewTitleForSubtask;
+- (NSString *)reviewSubtitleForSubtask;
 
 @end

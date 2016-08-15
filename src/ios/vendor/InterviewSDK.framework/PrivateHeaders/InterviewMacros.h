@@ -54,6 +54,7 @@
 #define kVideoEngineFragmentFinishedNotification @"VideoEngineFragmentFinished"
 #define kVideoEngineExportSessionDidBeginCryptoNotification @"VideoEngineExportSessionDidBeginCryptoNotification"
 #define kVideoEngineExportSessionDidChangeNotification @"VideoEngineExportSessionDidChangeNotification"
+#define kVideoEngineExportSessionDidPlayerReady @"VideoEngineExportSessionDidPlayerReadyNotification"
 #define kVideoEngineExportSessionDidFinishNotification @"VideoEngineExportSessionDidFinishNotification"
 #define kVideoEngineExportSessionDidFailNotification   @"VideoEngineExportSessionDidFailNotification"
 

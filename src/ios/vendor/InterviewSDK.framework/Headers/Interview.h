@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+//NS_ASSUME_NONNULL_BEGIN
+
+
 typedef enum : NSUInteger {
     InterviewVideoQualityLow,
     InterviewVideoQualityMedium,
@@ -21,10 +24,6 @@ typedef void (^InterviewErrorBlock)(id _Nullable error);
 @interface Interview : NSObject {
     
 }
-
-// If this property equals YES, SDK will show 'goodbye' view controller after success transmission
-// otherwise SDK will exit automatically (default YES)
-@property (nonatomic, setter=setIsGoodbyeScreen:, getter=isGoodbyeScreen) BOOL isGoodbyeScreen;
 
 // Interview controller will never closed if you set this property to YES (default NO)
 @property (nonatomic, setter=setIsDemoApp:, getter=isDemoApp) BOOL isDemoApp;
@@ -39,10 +38,12 @@ typedef void (^InterviewErrorBlock)(id _Nullable error);
 @property (nonatomic, setter=setAutoloadVideo:, getter=isAutoloadVideo) BOOL isAutoloadVideo;
 
 // Back-end API URL address. Default: "https://videointerview.blocknotary.com/"
-@property (nonatomic, setter=setEngineURL:, getter=getEngineURL) NSString *engineURL;
+@property (nonatomic, setter=setEngineURL:, getter=getEngineURL)  NSString * _Nullable engineURL;
 
 
 + (instancetype _Nonnull)instance;
+
+- (NSString * _Nonnull)sdkVersion;
 
 - (void)showInterviewControllerWithTaskId:(NSString * _Nullable)taskId animated:(BOOL)isAnimating;
 - (void)showInterviewControllerWithTaskId:(NSString *_Nullable)taskId animated:(BOOL)isAnimating withSuccessHandler:(InterviewCompletionBlock _Nullable)successBlock andErrorHandler:(InterviewErrorBlock _Nullable)errorBlock;
@@ -51,3 +52,6 @@ typedef void (^InterviewErrorBlock)(id _Nullable error);
 - (BOOL)mainApplication:(UIApplication * _Nonnull)application openURL:(NSURL * _Nonnull)url sourceApplication:(NSString * _Nullable)sourceApplication annotation:(id _Nullable)annotation;
 
 @end
+
+
+//NS_ASSUME_NONNULL_END

@@ -2,7 +2,7 @@
 
 Native plugin for blockchain-based video-interviews.
 
-Uses InterviewSDK v2.0.1
+Uses InterviewSDK v2.4.1
 
 Only for iOS (minimum version 8.0)
 
