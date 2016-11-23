@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SecureVideoEngine.h"
-#import "AffTaskObject.h"
+#import "InterviewTaskObject.h"
 #import "AffCameraOverlayView.h"
 
 @interface AffCameraController : UIViewController <UIAccelerometerDelegate, SecureVideoEngineDelegate, AffCameraOverlayViewProtocol> {
@@ -16,7 +16,7 @@
 };
 
 @property (nonatomic, strong) IBOutlet UIView *preView;
-@property (nonatomic, strong, setter=setCurrentTask:) AffTaskObject *currentTask;
+@property (nonatomic, strong, setter=setCurrentTask:) InterviewTaskObject *currentTask;
 
 
 #pragma mark Start screen routines

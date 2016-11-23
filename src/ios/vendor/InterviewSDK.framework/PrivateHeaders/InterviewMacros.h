@@ -10,6 +10,17 @@
 #define Macros_h
 
 #define DEFAULT_ENGINE @"https://videointerview.blocknotary.com/"
+#define DEFAULT_TASK_ID @"h8teS0XxiK"
+#define DEFAULT_USERNAME @"blocknotary@gmail.com"
+#define DEFAULT_PASSWORD @"AllSystems1"
+
+#define CELL_SEPARATOR_TAG  666
+#define REVIEW_OVERLAY_TAG  667
+#define FACE_RECTANGLE_TAG  12345
+#define VIDEOFRAME_TAG      112233
+#define HELP_VIEW_TAG       333
+
+#define LOADING_SCREEN_PORTRAIT YES
 
 #define PRINT_FRAME(str, frame)                     NSLog(@"%@: %.0f, %.0f, %.0f, %.0f", str, frame.origin.x, frame.origin.y, frame.size.width, frame.size.height)
 #define PRINT_SIZE(str, size)                       NSLog(@"%@: %.0fx%.0f", str, size.width, size.height)
@@ -66,6 +77,7 @@
 
 // Fonts
 #define SDC_REGULAR_FONT_WITH_SIZE(sz) [UIFont fontWithName:@"HelveticaNeue" size:sz]
+#define SDC_SUPERBOLD_FONT_WITH_SIZE(sz) [UIFont fontWithName:@"HelveticaNeue-Bold" size:sz]
 #define SDC_BOLD_FONT_WITH_SIZE(sz) [UIFont fontWithName:@"HelveticaNeue-Medium" size:sz]
 #define SDC_LIGHT_FONT_WITH_SIZE(sz) [UIFont fontWithName:@"HelveticaNeue-Light" size:sz]
 #define SDC_FONT_NAVBAR_TEXT [UIFont fontWithName:@"HelveticaNeue-Medium" size:16.0]
@@ -75,7 +87,9 @@
 #define INTERVIEW_WAS_FINISHED_NOTIFICATION @"InterviewWasFinished"
 #define INTERVIEW_WAS_RESTARTED_WITH_RESULT_NOTIFICATION @"InterviewWasRestarted"
 
+#warning Need to correct this bundle ID according with real ID
 #define INTERVIEW_BUNDLE [NSBundle bundleWithIdentifier:@"ru.hintsolutions.InterviewSDK"]
+
 #define INTERVIEW_IMAGE_NAMED(x) [UIImage imageNamed:x inBundle:INTERVIEW_BUNDLE compatibleWithTraitCollection:nil]
 #define INTERVIEW_STRING(key) [INTERVIEW_BUNDLE localizedStringForKey:(key) value:@"" table:nil]
 //NSLocalizedStringFromTableInBundle(x, @"InterviewLocalizable.strings", INTERVIEW_BUNDLE, @"")

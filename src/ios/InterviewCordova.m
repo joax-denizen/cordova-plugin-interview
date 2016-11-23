@@ -12,6 +12,15 @@
 
 - (void)showDemoInterview:(CDVInvokedUrlCommand*)command{
     __block CDVPluginResult* pluginResult = nil;
+    
+    [[Interview instance] setIsCloseButton:YES];
+    [[Interview instance] setIsRestartButton:NO];
+    [[Interview instance] setIsTutorial:NO];
+    [[Interview instance] setVideoQuality:InterviewVideoQualityMedium];
+    [[Interview instance] setAutoclose:YES];
+    
+    [[Interview instance] setInterfaceScheme:InterviewInterfaceSchemeBlack];
+    
     [[Interview instance] showInterviewControllerWithTaskId:nil animated:YES withSuccessHandler:^(NSDictionary * _Nullable task) {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];

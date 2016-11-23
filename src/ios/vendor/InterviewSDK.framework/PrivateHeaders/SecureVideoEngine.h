@@ -10,8 +10,8 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import <CoreLocation/CoreLocation.h>
-#import "AffTaskObject.h"
-#import "AffSubtaskObject.h"
+#import "InterviewTaskObject.h"
+#import "InterviewSubtaskObject.h"
 #import "Interview.h"
 
 typedef void (^ExportAudioCompletionBlock)(id _Nullable error);
@@ -36,9 +36,11 @@ typedef enum {
     EngineCatchScreenshotStyleFace,
     EngineCatchScreenshotStyleFacePortrait,
     EngineCatchScreenshotStyleDocument,
-    EngineCatchScreenshotStyleFaceIdle,         // only highlight, not catch
-    EngineCatchScreenshotStyleFacePortraitIdle, // only highlight, not catch
-    EngineCatchScreenshotStyleDocumentIdle      // only highlight, not catch
+    EngineCatchScreenshotStyleDocumentPortrait,
+    EngineCatchScreenshotStyleFaceIdle,             // only highlight, not catch
+    EngineCatchScreenshotStyleFacePortraitIdle,     // only highlight, not catch
+    EngineCatchScreenshotStyleDocumentIdle,         // only highlight, not catch
+    EngineCatchScreenshotStyleDocumentPortraitIdle  // only highlight, not catch
 } EngineCatchScreenshotStyle;
 
 @protocol SecureVideoEngineDelegate <NSObject>
@@ -51,6 +53,7 @@ typedef enum {
 - (void)diskIsFull;
 - (void)faceWasDetectedAtBounds:(CGRect)relativelyBounds onImage:(UIImage * _Nullable)img;
 - (void)faceWasUndetected;
+- (void)speechWasRecognized:(NSString * _Nonnull)translatedText forFragmentWithIndex:(NSUInteger)idx;
 @optional
 - (void)videoFrameRetrieved:(UIImage * _Nullable)videoFrame;
 @end
@@ -85,7 +88,7 @@ typedef enum {
 - (void)cleanupVideoEngine; // use it before start new session
 
 
-- (void)startComposingReadyMovieForTask:(AffTaskObject * _Nonnull)task;
+- (void)startComposingReadyMovieForTask:(InterviewTaskObject * _Nonnull)task;
 
 //- (BOOL)signRecordWithRecordInfo:(NSMutableDictionary *)recordDictionary;
 
@@ -98,20 +101,32 @@ typedef enum {
 
 @property (nonatomic) EngineCatchScreenshotStyle catchScreenshotsType;
 
+@property (nonatomic, strong) NSString * _Nullable speechRecognizerLanguage;
+
 @property (nonatomic, strong) NSString * _Nullable taskId;
-//@property (nonatomic, strong) id userInfo;
+@property (nonatomic, strong) id _Nullable userInfo;
 
 @property (nonatomic) BOOL isDemoApp;
 @property (nonatomic) BOOL isCloseButton;
+//@property (nonatomic) BOOL isBackButtonInsteadCloseAtStart;
+@property (nonatomic) BOOL isRestartButton;
+@property (nonatomic) BOOL isTutorial;
 
 @property (nonatomic, setter = setOrientation:) UIInterfaceOrientation currentOrientation;
 @property (nonatomic, setter = setCameraPosition:) AVCaptureDevicePosition cameraPosition;
-@property (nonatomic, setter = setMirroring:) BOOL isMirroring;
+//@property (nonatomic, setter = setMirroring:) BOOL isMirroring;
 @property (nonatomic) BOOL isDateTimeOverlay;
 @property (nonatomic, setter = setIsGeolocationOverlay:) BOOL isGeolocationOverlay;
 @property (nonatomic) InterviewVideoQuality outVideoQuality;
 @property (nonatomic) BOOL isAutoloadVideo;
+@property (nonatomic) BOOL isAutoclose;
+
 @property (nonatomic, strong, getter = getEngineURL) NSString * _Nullable engineURL;
+@property (nonatomic, strong, getter = getDemoTaskId) NSString * _Nullable demoTaskId;
+@property (nonatomic, strong, getter = getEngineUsername) NSString * _Nullable engineUsername;
+@property (nonatomic, strong, getter = getEnginePassword) NSString * _Nullable enginePassword;
+
+@property (nonatomic, strong, getter = getDemoTask) InterviewTaskObject * _Nullable demoTask;
 
 @property (strong, nonatomic, readonly) UIImage * _Nullable previewImageExample;
 
