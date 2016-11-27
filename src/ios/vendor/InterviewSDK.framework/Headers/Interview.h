@@ -60,10 +60,10 @@ typedef void (^InterviewErrorBlock)(id _Nullable error);
 @property (nonatomic, setter=setAutoclose:, getter=isAutoclose) BOOL isAutoclose;
 
 
-// Back-end API URL address. Default: "https://videointerview.blocknotary.com/"
+// Back-end API URL address. Default: "https://videointerview.blocknotary.com/" DEPRECATED! Use setEngineURL:withUsername:andPassword:demoTaskId: instead
 @property (nonatomic, setter=setEngineURL:, getter=getEngineURL)  NSString * _Nullable engineURL;
 
-// Back-end API URL address. Default: "https://videointerview.blocknotary.com/"
+// Interface scheme
 @property (nonatomic, setter=setInterfaceScheme:, getter=getInterfaceScheme)  InterviewInterfaceScheme interfaceScheme;
 
 

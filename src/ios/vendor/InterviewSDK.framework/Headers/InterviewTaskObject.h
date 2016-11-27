@@ -36,7 +36,6 @@ typedef void (^ InterviewTaskLoadingCompletionBlock)(InterviewTaskObject *result
 @property (nonatomic, strong) NSMutableDictionary *result;
 
 - (void)loadTaskWithId:(NSString *)taskId withCompletionBlock:(InterviewTaskLoadingCompletionBlock)completion;
-
 - (void)uploadTaskResultWithProgressBlock:(InterviewTaskUploadingProgressBlock)progress completionBlock:(InterviewTaskLoadingCompletionBlock)completion;
 
 - (BOOL)isDemo;

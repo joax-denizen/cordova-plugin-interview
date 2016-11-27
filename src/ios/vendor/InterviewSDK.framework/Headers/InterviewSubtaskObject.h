@@ -48,12 +48,10 @@ typedef enum : NSUInteger {
 // | max time           | 0     | 0         | 30        | 15        | 15        |
 // | overlay            | void  | face      | face      | passport  | face      |
 // | watermark          | -     | -         | time+geo  | geo       | time      |
-// | antimirror effect  | -     | -         | -         | +         | -         |
 // | camera position    | front | front     | front     | rear      | front     |
 // | screenshots        | -     | -         | +         | +         | +         |
 // | speech recognize   | -     | -         | en-US     | en-US     | en-US     |
 // | presentation       | land  | port      | port      | land-full | land      |
-// | speech recognition | -     | -         | en-US     | en-US     | en-US     |
 // ------------------------------------------------------------------------------
 
 - (id)init;
