@@ -37,7 +37,7 @@
     };
     
     InterviewVideoQuality videoQuality = InterviewVideoQualityMedium;
-    NSString *videoQualityStr = [command.arguments objectAtIndex:0];
+    NSString *videoQualityStr = [command.arguments objectAtIndex:1];
     if([videoQualityStr isKindOfClass:[NSString class]]){
         videoQualityStr = [videoQualityStr lowercaseString];
         if([videoQualityStr isEqualToString:@"interviewvideoqualitylow"] || [videoQualityStr isEqualToString:@"low"]){
@@ -55,6 +55,7 @@
     [[Interview instance] setIsRestartButton:NO];
     [[Interview instance] setIsTutorial:NO];
     [[Interview instance] setVideoQuality:videoQuality];
+    [[Interview instance] setAutoclose:YES];
     
     [[Interview instance] setInterfaceScheme:InterviewInterfaceSchemeBlack];
     
@@ -102,6 +103,7 @@
     [[Interview instance] setIsRestartButton:NO];
     [[Interview instance] setIsTutorial:NO];
     [[Interview instance] setVideoQuality:InterviewVideoQualityMedium];
+    [[Interview instance] setAutoclose:YES];
     
     [[Interview instance] setInterfaceScheme:InterviewInterfaceSchemeBlack];
     
