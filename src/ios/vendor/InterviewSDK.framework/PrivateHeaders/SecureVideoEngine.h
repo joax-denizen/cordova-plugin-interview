@@ -66,6 +66,9 @@ typedef enum {
 + (_Nonnull instancetype)instance;
 + (NSString * _Nonnull)sdkVersion;
 
+- (uint64_t)getFreeDiskspace;
+//- (uint64_t)approxTaskDiskSize;
+
 @property (nonatomic, assign) _Nullable id<SecureVideoEngineDelegate> delegate;
 //@property (nonatomic, assign) SDC *sdc;
 
@@ -120,6 +123,9 @@ typedef enum {
 @property (nonatomic) InterviewVideoQuality outVideoQuality;
 @property (nonatomic) BOOL isAutoloadVideo;
 @property (nonatomic) BOOL isAutoclose;
+
+@property (nonatomic) InterviewSubtaskType loadigScreenType;
+@property (nonatomic) BOOL isPortraitLoadingScreen;
 
 @property (nonatomic, strong, getter = getEngineURL) NSString * _Nullable engineURL;
 @property (nonatomic, strong, getter = getDemoTaskId) NSString * _Nullable demoTaskId;

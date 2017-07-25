@@ -23,16 +23,32 @@ typedef enum : NSUInteger {
     InterviewInterfaceSchemeOrange = 0,
     InterviewInterfaceSchemeBlue,
     InterviewInterfaceSchemeGreen,
-    InterviewInterfaceSchemeBlack
+    InterviewInterfaceSchemeBlack,
+    InterviewInterfaceSchemeDark
 } InterviewInterfaceScheme;
 
 
 typedef void (^InterviewCompletionBlock)(NSDictionary  * _Nullable task);
 typedef void (^InterviewErrorBlock)(id _Nullable error);
 
+@class Interview;
+
+@protocol InterviewDelegate <NSObject>
+@optional
+
+- (void)interviewWillAppear:(Interview *_Nonnull)interview;
+- (void)interviewDidAppear:(Interview *_Nonnull)interview;
+- (void)interviewWillDisappear:(Interview *_Nonnull)interview;
+- (void)interviewDidDisappear:(Interview *_Nonnull)interview;
+
+@end
+
 @interface Interview : NSObject {
     
 }
+
+// Interview delegate
+@property (nonatomic, assign) _Nullable id<InterviewDelegate> delegate;
 
 // Interview controller will never closed if you set this property to YES (default NO)
 @property (nonatomic, setter=setIsDemoApp:, getter=isDemoApp) BOOL isDemoApp;
@@ -65,6 +81,12 @@ typedef void (^InterviewErrorBlock)(id _Nullable error);
 
 // Interface scheme
 @property (nonatomic, setter=setInterfaceScheme:, getter=getInterfaceScheme)  InterviewInterfaceScheme interfaceScheme;
+
+// Initial (loading) screen type: statement or document types are supported (default = InterviewSubtaskTypeReadStatement)
+@property (nonatomic, setter=setLoadingScreenType:, getter=getLoadingScreenType) InterviewSubtaskType loadingScreenType;
+
+// Initial (loading) screen orientation (defualt = YES)
+@property (nonatomic, setter=setIsPortraitLoadingScreen:, getter=getIsPortraitLoadingScreen)  BOOL isPortraitLoadingScreen;
 
 
 + (instancetype _Nonnull)instance;

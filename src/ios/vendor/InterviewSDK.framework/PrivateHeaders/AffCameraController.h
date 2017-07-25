@@ -10,6 +10,7 @@
 #import "SecureVideoEngine.h"
 #import "InterviewTaskObject.h"
 #import "AffCameraOverlayView.h"
+#import "PKAlertController.h"
 
 @interface AffCameraController : UIViewController <UIAccelerometerDelegate, SecureVideoEngineDelegate, AffCameraOverlayViewProtocol> {
     

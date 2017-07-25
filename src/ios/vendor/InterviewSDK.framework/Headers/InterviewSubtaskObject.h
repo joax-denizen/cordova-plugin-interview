@@ -35,6 +35,15 @@ typedef enum : NSUInteger {
     InterviewSubtaskPresentationStylePortraitFullscreen       // portrait style for vertical documents
 } InterviewSubtaskPresentationStyle;
 
+typedef enum : NSUInteger {
+    InterviewSubtaskScreenshotsTypeNone = 0,
+    InterviewSubtaskScreenshotsTypeBeforeRecord,
+    InterviewSubtaskScreenshotsTypeWhileRecordBegin,
+    InterviewSubtaskScreenshotsTypeWhileRecordEnd,
+    InterviewSubtaskScreenshotsTypeWhileRecordBeginEnd
+} InterviewSubtaskScreenshotsType;
+
+
 
 @interface InterviewSubtaskObject : NSObject {
     

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="cordova-plugin-interview" version="2.5.1">
+        id="cordova-plugin-interview" version="2.7">
     <name>Interview</name>
     <description>Blockchain-based Video Interview Plugin</description>
     <license>MIT</license>
@@ -34,6 +34,7 @@
                 <string>ru</string>
                 <string>de</string>
                 <string>es</string>
+                <string>nl</string>
             </array>
         </config-file>
 

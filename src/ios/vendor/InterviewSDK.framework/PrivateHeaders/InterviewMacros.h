@@ -84,6 +84,7 @@
 
 #define INTERVIEW_HELP_FONT_WITH_SIZE(sz) [UIFont fontWithName:@"Noteworthy-Light" size:sz]
 
+//#define INTERVIEW_WILL_FINISHED_NOTIFICATION @"InterviewWillFinished"
 #define INTERVIEW_WAS_FINISHED_NOTIFICATION @"InterviewWasFinished"
 #define INTERVIEW_WAS_RESTARTED_WITH_RESULT_NOTIFICATION @"InterviewWasRestarted"
 
