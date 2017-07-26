@@ -1,0 +1,29 @@
+{
+  "name": "cordova-plugin-interview",
+  "version": "2.7.0-1",
+  "description": "Blockchain-based Video Interview Plugin",
+  "cordova": {
+    "id": "cordova-plugin-interview",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/blocknotary/cordova-plugin-interview.git"
+  },
+  "keywords": [
+    "interview",
+    "video",
+    "blockchain",
+    "sdk",
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "author": "Hintsolutions",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/blocknotary/cordova-plugin-interview/issues"
+  },
+  "homepage": "https://gitlab.com/blocknotary/cordova-plugin-interview#README"
+}
