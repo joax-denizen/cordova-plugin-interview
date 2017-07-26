@@ -13,8 +13,9 @@
 
 @interface InterviewCordova : CDVPlugin
 
+- (void)setDelegateMethod:(CDVInvokedUrlCommand*)command;
 - (void)setEngine:(CDVInvokedUrlCommand*)command;
 - (void)showInterview:(CDVInvokedUrlCommand*)command;
-- (void)showDemoInterview:(CDVInvokedUrlCommand*)command;
+- (void)showDemoInterview:(CDVInvokedUrlCommand*)command;;
 
 @end

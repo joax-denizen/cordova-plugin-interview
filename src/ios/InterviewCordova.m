@@ -8,8 +8,19 @@
 
 #import "InterviewCordova.h"
 
+@interface InterviewCordova () <InterviewDelegate> {
+    
+}
+
+@property (nonatomic, strong) NSString* callbackId;
+
+@end
+
 @implementation InterviewCordova
 
+- (void)setDelegateMethod:(CDVInvokedUrlCommand*)command {
+    self.callbackId = command.callbackId;
+};
 
 - (void)setEngine:(CDVInvokedUrlCommand*)command {
     CDVPluginResult* pluginResult = nil;
@@ -22,7 +33,7 @@
         [[Interview instance] setEngineURL:engineURL withUsername:username andPassword:password demoTaskId:demoTaskId];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     }else{
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Plaese specify engine URL, username, password and taskId for demo interviews"];
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Please specify engine URL, username, password and taskId for demo interviews"];
     };
     
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
@@ -81,6 +92,8 @@
     demoTask.subtasks = @[subtask0, subtask1, subtask2];
     [[Interview instance] setDemoTask:demoTask];
     
+    [[Interview instance] setDelegate:self];
+    
     [[Interview instance] showInterviewControllerWithTaskId:taskId animated:YES withSuccessHandler:^(NSDictionary * _Nullable task) {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
@@ -129,8 +142,10 @@
     demoTask.subtasks = @[subtask0, subtask1, subtask2];
     [[Interview instance] setDemoTask:demoTask];
     
+    [[Interview instance] setDelegate:self];
+    
     [[Interview instance] showInterviewControllerWithTaskId:nil animated:YES withSuccessHandler:^(NSDictionary * _Nullable task) {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:task];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     } andErrorHandler:^(id  _Nullable error) {
         if([error isKindOfClass:[NSString class]]){
@@ -142,6 +157,36 @@
         };
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }];
+};
+
+# pragma mark - InterviewDelagate's routines
+
+- (void)interviewWillAppear:(Interview *)interview{
+    NSLog(@"Will appear INTERVIEW 0x%08lX", (unsigned long)interview);
+    
+    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"willAppear"];
+    [self.commandDelegate sendPluginResult:result callbackId:self.callbackId];
+};
+
+- (void)interviewDidAppear:(Interview *)interview{
+    NSLog(@"Did appear INTERVIEW 0x%08lX", (unsigned long)interview);
+    
+    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"didAppear"];
+    [self.commandDelegate sendPluginResult:result callbackId:self.callbackId];
+};
+
+- (void)interviewWillDisappear:(Interview *)interview{
+    NSLog(@"Will disappear INTERVIEW 0x%08lX", (unsigned long)interview);
+    
+    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"willDisappear"];
+    [self.commandDelegate sendPluginResult:result callbackId:self.callbackId];
+};
+
+- (void)interviewDidDisappear:(Interview *)interview{
+    NSLog(@"Did disappear INTERVIEW 0x%08lX", (unsigned long)interview);
+    
+    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"didDisappear"];
+    [self.commandDelegate sendPluginResult:result callbackId:self.callbackId];
 };
 
 @end
