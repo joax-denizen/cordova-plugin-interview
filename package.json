@@ -1,11 +1,12 @@
 {
   "name": "cordova-plugin-interview",
-  "version": "2.7.0-1",
+  "version": "2.8",
   "description": "Blockchain-based Video Interview Plugin",
   "cordova": {
     "id": "cordova-plugin-interview",
     "platforms": [
-      "ios"
+      "ios",
+      "android"
     ]
   },
   "repository": {
@@ -18,7 +19,8 @@
     "blockchain",
     "sdk",
     "ecosystem:cordova",
-    "cordova-ios"
+    "cordova-ios",
+    "cordova-android"
   ],
   "author": "Hintsolutions",
   "license": "MIT",

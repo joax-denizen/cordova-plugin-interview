@@ -1,0 +1,1 @@
+android {    defaultConfig {        minSdkVersion 19        targetSdkVersion 23    }   packagingOptions {       exclude 'META-INF/NOTICE'       exclude 'META-INF/LICENSE'   }}

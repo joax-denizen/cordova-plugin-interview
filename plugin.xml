@@ -56,4 +56,20 @@
         -->
     </platform>
 
+    <platform name="android">
+	<config-file target="config.xml" parent="/*">
+            <feature name="InterviewSDK">
+                <param name="android-package" value="com.interview.korul.interview.CordovaInterview" />
+            </feature>
+
+		<preference name="android-targetSdkVersion" value="23" />
+		<preference name="android-minSdkVersion" value="19" />
+        </config-file>
+        <source-file src="src/android/CordovaInterview.java" target-dir="src/com/interview/korul/interview"/> 
+	<framework src="src/android/plugin.gradle" custom="true" type="gradleReference" />
+	<resource-file src="src/android/InterviewSDK/interviewSDK.aar" target="libs/interviewSDK.aar" />
+
+    </platform>
+
+
 </plugin>
