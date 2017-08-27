@@ -2,19 +2,34 @@
 
 Native plugin for blockchain-based video-interviews.
 
-Uses InterviewSDK v2.7
+Uses InterviewSDK v2.8
 
-Only for iOS (minimum version 8.0)
+## Plugin for iOS (minimum version 8.0) and Android (Api 19)
 
 This plugin cannot work on simulator, because it uses some device-specific capablities (camera, microphone etc)
 
-## Installation
+## Installation for iOS
 
 ```
 npm install https://github.com/aabluedragon/node-xcode.git
 cordova plugin add https://gitlab.com/blocknotary/cordova-plugin-interview.git
 cordova plugin add cordova-plugin-disable-bitcode --save
 ```
+
+## Installation for Android
+
+```
+install Android SDK, JRE, JDK
+make sure that the environment variable is set correctly
+For Windows install Node.js and run it
+npm install -g ionic@latest
+npm install -g cordova
+ionic cordova plugin add https://gitlab.com/blocknotary/cordova-plugin-interview.git --force
+ionic cordova prepare --force
+If the project was not made on Windows run 'npm rebuild node-sass --force'
+ionic cordova build android --force
+```
+
 
 ## Usage
 
