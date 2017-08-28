@@ -19,19 +19,16 @@ cordova plugin add cordova-plugin-disable-bitcode --save
 ## Installation for Android
 
 ```
-install Android SDK, JRE, JDK
-<<<<<<< HEAD
-make sure that the environment variable is set correctly
-=======
-Èe sure that the environment variable is set correctly
->>>>>>> origin/HEAD
-For Windows install Node.js and run it
-npm install -g ionic@latest
-npm install -g cordova
-ionic cordova plugin add https://gitlab.com/blocknotary/cordova-plugin-interview.git --force
-ionic cordova prepare --force
-If the project was not made on Windows run 'npm rebuild node-sass --force'
-ionic cordova build android --force
+1. install Android SDK, JRE, JDK
+2. make sure that the environment variable is set correctly
+3. For Windows install Node.js and run it
+4. If the project was not made on Windows run 'npm rebuild node-sass --force'
+
+5. npm install -g ionic@latest
+6. npm install -g cordova
+7. ionic cordova plugin add https://gitlab.com/blocknotary/cordova-plugin-interview.git --force
+8. ionic cordova prepare --force
+9. ionic cordova build android --force
 ```
 
 
