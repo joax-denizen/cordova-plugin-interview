@@ -20,7 +20,11 @@ cordova plugin add cordova-plugin-disable-bitcode --save
 
 ```
 install Android SDK, JRE, JDK
+<<<<<<< HEAD
 make sure that the environment variable is set correctly
+=======
+Èe sure that the environment variable is set correctly
+>>>>>>> origin/HEAD
 For Windows install Node.js and run it
 npm install -g ionic@latest
 npm install -g cordova
