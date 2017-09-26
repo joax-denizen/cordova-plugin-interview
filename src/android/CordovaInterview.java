@@ -160,7 +160,6 @@ public class CordovaInterview extends CordovaPlugin{
         interview.set_loadingScreenType(true);
 
         interview.set_VIDEO_QUALITY(VideoQuality.QUALITY.QUALITY_HIGH);
-        interview.setDemoTask(interview.getDefaultTask());
 
         String taskId ="";
         String videoQualityString="";

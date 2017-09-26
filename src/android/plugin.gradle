@@ -29,7 +29,12 @@ android {
         versionCode 1
         versionName "1.0"
     }
-
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ["src/main/jniLibs/"]
+            jni.srcDirs = [] //disable automatic ndk-build call
+        }
+    }
     dataBinding.enabled = true
     packagingOptions {
         exclude 'META-INF/NOTICE'
@@ -50,8 +55,9 @@ dependencies {
     compile 'com.github.kittinunf.fuel:fuel-android:1.8.0'
     compile 'com.simplemobiletools:commons:2.21.12'
     // Tool for Camera
-    compile 'com.google.code.gson:gson:2.8.1'
+    compile 'com.simplemobiletools:commons:2.21.12'
     // JSON
-    compile 'uk.co.chrisjenx:calligraphy:2.3.0'
+    compile 'com.google.code.gson:gson:2.8.1'
     // fonts
+    compile 'uk.co.chrisjenx:calligraphy:2.3.0'
 }
