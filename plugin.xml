@@ -67,7 +67,7 @@
         </config-file>
         <source-file src="src/android/CordovaInterview.java" target-dir="src/com/interview/korul/interview"/> 
 	<framework src="src/android/plugin.gradle" custom="true" type="gradleReference" />
-	<resource-file src="src/android/InterviewSDK/interviewSDK.aar" target="libs/interviewSDK.aar" />
+	<resource-file src="src/android/InterviewSDK/InterviewSDK.aar" target="libs/InterviewSDK.aar" />
 
     </platform>
 
