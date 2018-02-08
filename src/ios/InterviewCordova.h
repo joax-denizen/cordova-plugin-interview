@@ -15,6 +15,9 @@
 
 - (void)setDelegateMethod:(CDVInvokedUrlCommand*)command;
 - (void)setEngine:(CDVInvokedUrlCommand*)command;
+- (void)setEngineWithKey:(CDVInvokedUrlCommand*)command;
+- (void)setS3Storage:(CDVInvokedUrlCommand*)command;
+- (void)setAuthString:(CDVInvokedUrlCommand*)command;
 - (void)showInterview:(CDVInvokedUrlCommand*)command;
 - (void)showDemoInterview:(CDVInvokedUrlCommand*)command;;
 

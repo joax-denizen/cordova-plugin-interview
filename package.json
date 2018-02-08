@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-interview",
-  "version": "2.7.0-2",
+  "version": "2.11.0-1",
   "description": "Blockchain-based Video Interview Plugin",
   "cordova": {
     "id": "cordova-plugin-interview",

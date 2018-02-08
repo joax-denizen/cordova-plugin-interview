@@ -24,7 +24,8 @@ typedef enum : NSUInteger {
     InterviewInterfaceSchemeBlue,
     InterviewInterfaceSchemeGreen,
     InterviewInterfaceSchemeBlack,
-    InterviewInterfaceSchemeDark
+    InterviewInterfaceSchemeDark,
+    InterviewInterfaceSchemeLegalthings,
 } InterviewInterfaceScheme;
 
 
@@ -59,7 +60,6 @@ typedef void (^InterviewErrorBlock)(id _Nullable error);
 // When YES, show "back" button on a first screen - it will perform close function (default: NO)
 //@property (nonatomic, setter=setIsBackButtonInsteadCloseAtStart:, getter=isBackButtonInsteadCloseAtStart) BOOL isBackButtonInsteadCloseAtStart;
 
-
 // If you want to hide restart button for every subtask, set this property to NO (default YES)
 @property (nonatomic, setter=setIsRestartButton:, getter=isRestartButton) BOOL isRestartButton;
 
@@ -74,7 +74,6 @@ typedef void (^InterviewErrorBlock)(id _Nullable error);
 
 // When this value "YES", SDK automatically closed after video upload. When "NO" SDK will ask user after uploading for appropriate variant. Available only when isCloseButton is YES (default NO)
 @property (nonatomic, setter=setAutoclose:, getter=isAutoclose) BOOL isAutoclose;
-
 
 // Back-end API URL address. Default: "https://videointerview.blocknotary.com/" DEPRECATED! Use setEngineURL:withUsername:andPassword:demoTaskId: instead
 @property (nonatomic, setter=setEngineURL:, getter=getEngineURL)  NSString * _Nullable engineURL;
@@ -93,10 +92,34 @@ typedef void (^InterviewErrorBlock)(id _Nullable error);
 
 - (NSString * _Nonnull)sdkVersion;
 
-// When you set API URL, you should specify login information and task id for demo-task (using when uploading demo task)
-- (void)setEngineURL:(NSString * _Nonnull)apiURL withUsername:(NSString * _Nonnull)username andPassword:(NSString * _Nonnull)password demoTaskId:(NSString * _Nonnull)taskId;
+// WARNING: Do not use this method! It's deprecated since SDK v2.8
+// Use setEngineURL:withUsername:demoTaskId: instead
+// When you set API URL, you can specify login information and task id for demo-task (this task id using when uploading demo task)
+- (void)setEngineURL:(NSString * _Nonnull)apiURL withUsername:(NSString * _Nonnull)username andPassword:(NSString * _Nonnull)password demoTaskId:(NSString * _Nonnull)taskId __deprecated_msg("Use setEngineURL:withUsername:demoTaskId: method insted");
 
+// Engine setter method: without username/password, API key only
+- (void)setEngineURL:(NSString * _Nonnull)apiURL withApiKey:(NSString * _Nonnull)apiKey demoTaskId:(NSString * _Nonnull)taskId;
+
+// Demo task is integrated into SDK, but you can change it. Create your custom InterviewTaskObject instance and use the following method
 - (void)setDemoTask:(InterviewTaskObject * _Nonnull)demoTask;
+
+// Set external storage (for video/audio/screenshots). Otherwise API storage will be used.
+- (void)setS3StorageURL:(NSString * _Nonnull)storageURL withBucketName:(NSString * _Nonnull)bucketName withAccessKey:(NSString * _Nonnull)accessKey andSecretKey:(NSString * _Nonnull)secretKey;
+
+// Invoke this method to use standart API storage
+- (void)useStandartStorage;
+
+
+
+// Authorization header. If you set this option, SDK will add this header to the all API requests. Use this field for any additional credentials, keys, etc
+// Pass to the authHdr string like "Basic YWxhZGRpbjpvcGVuc2VzYW1l", where is base64-encoded string "aladdin:opensesame" for default scheme "Basic"
+// This  method returns NO when unable to parse header (now supports only "Basic", "Bearer" or "BNSession" authorization scheme)
+- (BOOL)setAuthHdr:(NSString * _Nonnull)header;
+- (void)setBasicAuthHdrWithUsername:(NSString * _Nonnull)username andPassword:(NSString * _Nonnull)password;
+- (void)setBearerAuthHdrWithToken:(NSString * _Nonnull)token;
+- (void)setBlocknotaryAuthHdrWithToken:(NSString * _Nonnull)token;
+- (void)removeAuthHdr;
+
 
 - (void)showInterviewControllerWithTaskId:(NSString * _Nullable)taskId animated:(BOOL)isAnimating;
 - (void)showInterviewControllerWithTaskId:(NSString *_Nullable)taskId animated:(BOOL)isAnimating withSuccessHandler:(InterviewCompletionBlock _Nullable)successBlock andErrorHandler:(InterviewErrorBlock _Nullable)errorBlock;

@@ -11,8 +11,9 @@
 
 #define DEFAULT_ENGINE @"https://videointerview.blocknotary.com/"
 #define DEFAULT_TASK_ID @"h8teS0XxiK"
-#define DEFAULT_USERNAME @"blocknotary@gmail.com"
-#define DEFAULT_PASSWORD @"AllSystems1"
+#define DEFAULT_APIKEY @"40512c57a74f5b1031aff1aaaf3665f93b608a6f042a32c8c792a8773451e450"
+
+#define CONFIRM_IO_KEY @"f43bd3b4-f832-495b-ba2f-13d92783d8d3"
 
 #define CELL_SEPARATOR_TAG  666
 #define REVIEW_OVERLAY_TAG  667

@@ -29,14 +29,13 @@ typedef enum {  // confirm.io requests
     InterviewTaskConfirmTypeFace,           // FACE CONFIRMATION:       send front document photo and selie to confirm user face
     InterviewTaskConfirmTypeComposite,      // COMPOSITE CONFIRMATION:  make document and face confirmation
     InterviewTaskConfirmTypeDocumentLazy,   // doc confirmation with request only (send request guid to the server)
-    //InterviewTaskConfirmTypeFaceLazy,     // face request makes immediately
     InterviewTaskConfirmTypeCompositeLazy   // composite confirmation with request only
 } InterviewTaskConfirmType;
 
 typedef void (^ InterviewTaskUploadingProgressBlock)(InterviewTaskUploadingStage curStage, double val);
 typedef void (^ InterviewTaskLoadingCompletionBlock)(InterviewTaskObject *result, id error);
 
-@interface InterviewTaskObject : NSObject {
+@interface InterviewTaskObject : NSObject <NSCoding> {
     
 };
 

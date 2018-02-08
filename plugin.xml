@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="cordova-plugin-interview" version="2.7">
+        id="cordova-plugin-interview" version="2.12">
     <name>Interview</name>
     <description>Blockchain-based Video Interview Plugin</description>
     <license>MIT</license>
@@ -14,7 +14,7 @@
             <feature name="InterviewSDK">
                 <param name="ios-package" value="InterviewCordova" />
             </feature>
-            <preference name="deployment-target" value="8.0" />
+            <preference name="deployment-target" value="8.4" />
         </config-file>
         <config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
             <string>Application overlays geolocation on video frame</string>
@@ -56,19 +56,23 @@
         -->
     </platform>
 
+
     <platform name="android">
 	<config-file target="config.xml" parent="/*">
             <feature name="InterviewSDK">
-                <param name="android-package" value="com.interview.korul.interview.CordovaInterview" />
+                <param name="android-package" value="com.blocknotary.interviewSDK.CordovaInterview" />
             </feature>
 
-		<preference name="android-targetSdkVersion" value="23" />
+		<preference name="android-targetSdkVersion" value="27" />
 		<preference name="android-minSdkVersion" value="19" />
         </config-file>
-        <source-file src="src/android/CordovaInterview.java" target-dir="src/com/interview/korul/interview"/> 
+        <source-file src="src/android/CordovaInterview.java" target-dir="src/com/blocknotary/interviewSDK"/> 
+	<source-file src="src/android/libs/armeabi-v7a/libopencv_java3.so" target-dir="libs/armeabi-v7a/" />
+	<source-file src="src/android/libs/armeabi-v7a/libopencv_imgproc.a" target-dir="libs/armeabi-v7a/" />
+	<source-file src="src/android/libs/armeabi-v7a/libopencv_core.a" target-dir="libs/armeabi-v7a/" />
 	<framework src="src/android/plugin.gradle" custom="true" type="gradleReference" />
 	<resource-file src="src/android/InterviewSDK/InterviewSDK.aar" target="libs/InterviewSDK.aar" />
-
+	<resource-file src="src/android/openCVLibrary330/openCVLibrary330.aar" target="libs/openCVLibrary330.aar" />
     </platform>
 
 

@@ -45,7 +45,7 @@ typedef enum : NSUInteger {
 
 
 
-@interface InterviewSubtaskObject : NSObject {
+@interface InterviewSubtaskObject : NSObject <NSCoding> {
     
 }
 

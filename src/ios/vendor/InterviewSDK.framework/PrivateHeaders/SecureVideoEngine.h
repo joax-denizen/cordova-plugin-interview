@@ -25,6 +25,7 @@ typedef enum {
     EngineStateSessionNotStarted,
 	EngineStateReady,
     EngineStateRecording,
+    EngineStateRecordingSimulation,
     EngineStateProcessing,
     EngineStateError,
     EngineStateFatalError,
@@ -77,7 +78,7 @@ typedef enum {
 
 - (BOOL)createCaptureSession;
 - (void)setCapturePreView:( UIView * _Nonnull)preView;
-- (void)setCaptureQuality;
+//- (void)setCaptureQuality;
 - (void)startCaptureSession;
 - (void)stopCaptureSession;
 - (void)startMovieCapturing;
@@ -131,8 +132,13 @@ typedef enum {
 @property (nonatomic, strong, getter = getDemoTaskId) NSString * _Nullable demoTaskId;
 @property (nonatomic, strong, getter = getEngineUsername) NSString * _Nullable engineUsername;
 @property (nonatomic, strong, getter = getEnginePassword) NSString * _Nullable enginePassword;
+@property (nonatomic, strong, getter = getEngineApiKey) NSString * _Nullable engineApiKey;
 
 @property (nonatomic, strong, getter = getDemoTask) InterviewTaskObject * _Nullable demoTask;
+
+@property (nonatomic, strong) NSDictionary * _Nullable externalS3Storage;   // keys (all is NSString *): @"url", @"bucket", @"accesskey", @"secretkey"
+
+@property (nonatomic, strong) NSDictionary * _Nullable authHdrDict;
 
 @property (strong, nonatomic, readonly) UIImage * _Nullable previewImageExample;
 

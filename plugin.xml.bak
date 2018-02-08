@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-interview" version="2.11">
+    <name>Interview</name>
+    <description>Blockchain-based Video Interview Plugin</description>
+    <license>MIT</license>
+    <keywords>interview,video,blockchain,sdk</keywords>
+    <js-module src="www/InterviewScript.js" name="interview">
+        <clobbers target="interview" />
+    </js-module>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="InterviewSDK">
+                <param name="ios-package" value="InterviewCordova" />
+            </feature>
+            <preference name="deployment-target" value="8.4" />
+        </config-file>
+        <config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
+            <string>Application overlays geolocation on video frame</string>
+        </config-file>
+        <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+            <string>Application uses the camera to record the interview</string>
+        </config-file>
+        <config-file target="*-Info.plist" parent="NSMicrophoneUsageDescription">
+            <string>Application uses the microphone for interviews</string>
+        </config-file>
+        <config-file target="*-Info.plist" parent="NSSpeechRecognitionUsageDescription">
+            <string>Application recognize your speech in interview</string>
+        </config-file>
+        <config-file target="*-Info.plist" parent="CFBundleLocalizations">
+            <array>
+                <string>en</string>
+                <string>ru</string>
+                <string>de</string>
+                <string>es</string>
+                <string>nl</string>
+            </array>
+        </config-file>
+
+        <hook type="after_platform_add" src="hooks/embedframework/addEmbedded.js" />
+
+        <header-file src="src/ios/InterviewCordova.h" />
+        <source-file src="src/ios/InterviewCordova.m" />
+        <framework src="src/ios/vendor/InterviewSDK.framework" custom="true" embed="true"/>
+        <!--
+        <framework src="Foundation.framework"/>
+        <framework src="UIKit.framework"/>
+        <framework src="CoreLocation.framework"/>
+        <framework src="ImageIO.framework"/>
+        <framework src="CoreGraphics.framework"/>
+        <framework src="MobileCoreServices.framework"/>
+        <framework src="Security.framework"/>
+        <framework src="AudioToolbox.framework"/>
+        <framework src="SystemConfiguration.framework"/>
+        -->
+    </platform>
+
+
+    <platform name="android">
+	<config-file target="config.xml" parent="/*">
+            <feature name="InterviewSDK">
+                <param name="android-package" value="com.interview.korul.interview.CordovaInterview" />
+            </feature>
+
+		<preference name="android-targetSdkVersion" value="23" />
+		<preference name="android-minSdkVersion" value="19" />
+        </config-file>
+        <source-file src="src/android/CordovaInterview.java" target-dir="src/com/interview/korul/interview"/> 
+	<source-file src="src/android/libs/armeabi-v7a/libopencv_java3.so" target-dir="libs/armeabi-v7a/" />
+	<source-file src="src/android/libs/armeabi-v7a/libopencv_imgproc.a" target-dir="libs/armeabi-v7a/" />
+	<source-file src="src/android/libs/armeabi-v7a/libopencv_core.a" target-dir="libs/armeabi-v7a/" />
+	<framework src="src/android/plugin.gradle" custom="true" type="gradleReference" />
+	<resource-file src="src/android/InterviewSDK/interviewSDK.aar" target="libs/InterviewSDK.aar" />
+	<resource-file src="src/android/openCVLibrary330/openCVLibrary330.aar" target="libs/openCVLibrary330.aar" />
+    </platform>
+
+
+</plugin>
